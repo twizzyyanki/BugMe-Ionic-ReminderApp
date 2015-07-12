@@ -1,0 +1,29 @@
+<ion-view view-title="Reminders">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon icon ion-plus-round"
+           ng-href="#/tab/addreminder"></a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="searchText">
+            </label>
+        </div>
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="reminder in reminders track by $index | filter:searchText | orderBy:'title'"
+                      type="item-text-wrap" href="#/tab/reminders/{{reminder.id}}">
+                <img ng-src="{{reminder.face}}">
+
+                <h2>{{reminder.title}}</h2>
+
+                <p>{{reminder.note}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+
+                <ion-option-button class="button-assertive" ng-click="remove(reminder)">
+                    Delete
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

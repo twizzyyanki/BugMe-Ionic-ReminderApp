@@ -1,0 +1,39 @@
+<ion-view view-title="View/Update Reminder">
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="update()">Update</button>
+    </ion-nav-buttons>
+    <form ng-submit="save()">
+        <ion-content>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Title</span>
+                <input ng-model="reminder.title" name="rTitle" type="text">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Note</span>
+                <textarea ng-model="reminder.note" name="rNote" rows="4"></textarea>
+            </label>
+            <ion-toggle ng-model="reminder.active" toggle-class="toggle-calm">Active</ion-toggle>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Interval
+                </div>
+                <select ng-model="reminder.interval">
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>Monthly</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Frequency
+                </div>
+                <select ng-model="reminder.frequency">
+                    <option>1</option>
+                    <option>5</option>
+                    <option>10</option>
+                    <option>15</option>
+                </select>
+            </label>
+        </ion-content>
+    </form>
+</ion-view>
