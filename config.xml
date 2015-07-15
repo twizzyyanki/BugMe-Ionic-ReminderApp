@@ -4,8 +4,8 @@
   <description>
         This app reminds you of events at random times.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-        Ionic Framework Team
+  <author email="agu_ifeanyi@yahoo.com" href="http://t.co/PRrYSWmbAC">
+        Code For Fun
     </author>
   <content src="index.html"/>
   <access origin="*"/>

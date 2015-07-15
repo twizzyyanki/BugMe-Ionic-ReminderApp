@@ -1,9 +1,45 @@
-<ion-view view-title="Account">
-    <ion-content>
-        <ion-list>
-            <ion-toggle ng-model="settings.enableFriends">
-                Enable Friends
-            </ion-toggle>
-        </ion-list>
-    </ion-content>
+<ion-view view-title="Settings">
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="save()">Save</button>
+    </ion-nav-buttons>
+    <form ng-submit="save()">
+        <ion-content>
+            <ion-list>
+                <ion-item class="item item-divider">Remind Me Between</ion-item>
+                <label class="item item-input">
+                    <span class="input-label">Start Time</span>
+                    <input ng-model="settings.startTime" type="time" placeholder="HH:mm:ss">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">End Time</span>
+                    <input type="time" ng-model="settings.endTime" placeholder="HH:mm:ss">
+                </label>
+                <ion-item class="item item-divider">Reminder Default Values</ion-item>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Interval
+                    </div>
+                    <select ng-model="settings.interval">
+
+                        <option value="hour">Hourly</option>
+                        <option value="day" selected>Daily</option>
+                        <option value="week">Weekly</option>
+                        <option value="month">Monthly</option>
+                        <option value="year">Yearly</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Frequency
+                    </div>
+                    <select ng-model="settings.frequency">
+                        <option value="1" selected>1</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                    </select>
+                </label>
+            </ion-list>
+        </ion-content>
+    </form>
 </ion-view>

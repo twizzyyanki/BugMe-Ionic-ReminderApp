@@ -22,8 +22,8 @@ angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
     .controller('ReminderDetailCtrl', function ($scope, $ionicPopup, Reminders, $stateParams, Reminders) {
         $scope.reminder = Reminders.get($stateParams.reminderId);
 
-        $scope.update = function() {
-            $scope.reminder.face = ($scope.reminder.active)?'./img/active.png':'./img/inactive.png';
+        $scope.update = function () {
+            $scope.reminder.face = ($scope.reminder.active) ? './img/active.png' : './img/inactive.png';
             Reminders.update($scope.reminder);
             $ionicPopup.alert({
                 title: 'Success!!!',
@@ -32,51 +32,49 @@ angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
         };
     })
 
-    .controller('AddReminderCtrl', function ($scope, $ionicPopup, $rootScope, $state, $ionicPlatform, $cordovaLocalNotification, Reminders) {
+    .controller('AddReminderCtrl', function ($scope, $ionicPopup, $rootScope, $state, $ionicPlatform, Reminders, Notifications, Settings) {
         //$scope.reminder = Reminders.get($stateParams.reminderId);
+        console.log("settings interval" + Settings.get().interval);
+        $scope.reminder = {interval: Settings.get().interval, frequency: Settings.get().frequency};
 
-        $scope.reminder = {interval: "Daily", frequency: 1};
-
-        $scope.save = function(){
+        $scope.save = function () {
 
             var newreminder = {
                 id: Reminders.size(),
                 title: $scope.reminder.title,
                 note: $scope.reminder.note,
-                face: ($scope.reminder.active)?'./img/active.png':'./img/inactive.png',
+                face: ($scope.reminder.active) ? './img/active.png' : './img/inactive.png',
                 active: $scope.reminder.active,
                 interval: $scope.reminder.interval,
                 frequency: $scope.reminder.frequency
             };
             Reminders.add(newreminder);
-
-            //$scope.reminders = Reminders.all();
-
-            var alarmTime = new Date();
-            alarmTime.setMinutes(alarmTime.getMinutes() + 1);
-
-            var now             = new Date().getTime(),
-                _5_sec_from_now = new Date(now + 5*1000);
-
-            $cordovaLocalNotification.schedule({
-                id: "1234",
-                every: "minute",
-                message: "This is a message",
-                title: "This is a title",
-                data: newreminder.id
-
-
-            }).then(function () {
-                console.log("The notification has been set");
-
-
-            });
+            if(newreminder.active) {
+                Notifications.schedule(newreminder);
+            }
+            $scope.reminder = {interval: Settings.get().interval, frequency: Settings.get().frequency};
             $state.go("tab.reminders");
         };
     })
 
-    .controller('AccountCtrl', function ($scope) {
-        $scope.settings = {
-            enableFriends: true
+    .controller('AccountCtrl', function ($scope, Settings, $moment, $ionicPopup) {
+        $scope.settings = Settings.get();
+        $scope.settings.startTime = new Date($scope.settings.startTime);
+        $scope.settings.endTime = new Date($scope.settings.endTime);
+        //console.log($moment($scope.settings.endTime).diff($moment($scope.settings.startTime), "minutes"));
+        $scope.save = function () {
+            if ($moment($scope.settings.endTime).diff($moment($scope.settings.startTime), "minutes") < 1) {
+                $ionicPopup.alert({
+                    title: 'Error!!!',
+                    template: 'End time has to be after start time by at least 1 minute'
+                });
+                return;
+            }
+            Settings.save($scope.settings);
+            $ionicPopup.alert({
+                title: 'Success!!!',
+                template: 'Settings saved'
+            });
+
         };
     });
