@@ -2,7 +2,7 @@ angular.module('starter.services', [])
 
     .factory('Reminders', function (LocalStorage) {
         // Might use a resource here that returns a JSON array
-        LocalStorage.clear();
+        //LocalStorage.clear();
         var reminders = [];
 
         if (LocalStorage.getArray('xreminders')) {
@@ -259,7 +259,7 @@ angular.module('starter.services', [])
         };
     }).factory('Reminders', function (LocalStorage) {
         // Might use a resource here that returns a JSON array
-        LocalStorage.clear();
+        //LocalStorage.clear();
         var reminders = [];
 
         if (LocalStorage.getArray('xreminders')) {
@@ -273,7 +273,7 @@ angular.module('starter.services', [])
 
         return {
             all: function () {
-                return reminders;
+                return LocalStorage.getArray('xreminders');
             },
             remove: function (reminder) {
                 reminders.splice(reminders.indexOf(reminder), 1);

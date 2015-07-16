@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova', 'angular-momentjs'])
 
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $momentProvider) {
 
         // Ionic uses AngularUI Router which uses the concept of states
         // Learn more here: https://github.com/angular-ui/ui-router
@@ -77,8 +77,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/tab/reminders');
 
+        $momentProvider
+            .asyncLoading(false)
+            .scriptUrl('../lib/momemt/moment.js');
+
     })
-    .run(function ($ionicPlatform, $cordovaLocalNotification, $rootScope) {
+    .run(function ($ionicPlatform, $cordovaLocalNotification, $rootScope, Notifications) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -89,22 +93,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 // org.apache.cordova.statusbar required
                 StatusBar.styleLightContent();
             }
-            // console.log("Window plugins are activated");
-
-            /*$cordovaLocalNotification.setDefaults({
-             autoCancel: true
-             });*/
 
             if (window.device && window.device.platform === 'iOS') {
                 window.plugin.notification.local.registerPermission();
             }
 
-
             $rootScope.$on('$cordovaLocalNotification:click',
-                function(event, notification, state) {
+                function (event, notification, state) {
                     console.log("Notification was clicked " + notification.data);
-                    location.href = "#/tab/reminders/" + notification.data;
+                    location.href = "#/tab/reminders/" + JSON.parse(notification.data).id;
                     //$state.go("#/tab/reminders/" + notification.data.rid);
+                });
+
+            $rootScope.$on('$cordovaLocalNotification:trigger',
+                function(event, notification, state) {
+                    console.log(notification + "   " + notification.at);
                 });
         });
     });

@@ -1,6 +1,6 @@
 <ion-view view-title="Reminders">
     <ion-nav-buttons side="right">
-        <a class="button button-icon icon ion-plus-round"
+        <a class="button button-icon icon ion-compose"
            ng-href="#/tab/addreminder"></a>
     </ion-nav-buttons>
     <ion-content>
@@ -11,7 +11,7 @@
             </label>
         </div>
         <ion-list>
-            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="reminder in reminders track by $index | filter:searchText | orderBy:'title'"
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="reminder in reminders | orderBy:'title' | filter:searchText track by $index "
                       type="item-text-wrap" href="#/tab/reminders/{{reminder.id}}">
                 <img ng-src="{{reminder.face}}">
 
@@ -24,6 +24,7 @@
                     Delete
                 </ion-option-button>
             </ion-item>
+            <h6 class="padding text-center dark" ng-hide="reminders.length">You have no reminders! <br />Click the compose button on the top right to add reminders</h6>
         </ion-list>
     </ion-content>
 </ion-view>

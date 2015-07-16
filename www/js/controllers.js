@@ -1,6 +1,13 @@
 angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
 
-    .controller('DashCtrl', function ($scope) {
+    .controller('DashCtrl', function ($scope, Reminders, filterFilter, Notifications) {
+        $scope.$on('$ionicView.enter', function(e) {
+            $scope.reminders = Reminders.all();
+            $scope.inactive = filterFilter($scope.reminders, 'inactive');
+            $scope.active = $scope.reminders.length - $scope.inactive.length;
+            $scope.totalNotifications = Notifications.getId();
+        });
+
     })
 
     .controller('RemindersCtrl', function ($scope, Reminders, $ionicPopup) {
@@ -9,10 +16,11 @@ angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
         // To listen for when this page is active (for example, to refresh data),
         // listen for the $ionicView.enter event:
         //
-        //$scope.$on('$ionicView.enter', function(e) {
-        //});
+        $scope.$on('$ionicView.enter', function(e) {
+            $scope.reminders = Reminders.all();
+        });
 
-        $scope.reminders = Reminders.all();
+
         console.log("Reminders are " + $scope.reminders);
         $scope.remove = function (reminder) {
             Reminders.remove(reminder);
