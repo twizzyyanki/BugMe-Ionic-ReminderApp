@@ -28,7 +28,7 @@ angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
         };
     })
 
-    .controller('ReminderDetailCtrl', function ($scope, $ionicPopup, Reminders, $stateParams, Reminders) {
+    .controller('ReminderDetailCtrl', function ($scope, $ionicPopup, Reminders, $stateParams, $state, Reminders) {
         $scope.reminder = Reminders.get($stateParams.reminderId);
 
         $scope.update = function () {
@@ -38,6 +38,11 @@ angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
                 title: 'Success!!!',
                 template: 'The reminder has been updated'
             });
+        };
+
+        $scope.remove = function () {
+            Reminders.remove($scope.reminder);
+            $state.go("tab.reminders");
         };
     })
 
