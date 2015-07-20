@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova', 'angular-momentjs'])
+angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCordova', 'angular-momentjs'])
 
     .config(function ($stateProvider, $urlRouterProvider, $momentProvider) {
 
@@ -106,8 +106,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 });
 
             $rootScope.$on('$cordovaLocalNotification:trigger',
-                function(event, notification, state) {
-                    console.log(notification + "   " + notification.at);
+                function (event, notification, state) {
+                    console.log(notification + "   " + notification.at + " was triggered");
                 });
         });
     });

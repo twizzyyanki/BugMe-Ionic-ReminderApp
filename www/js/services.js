@@ -1,6 +1,6 @@
-angular.module('starter.services', [])
+angular.module('bugme.services', [])
 
-    .factory('Reminders', function (LocalStorage) {
+    .factory('Reminders', function (LocalStorage, Notifications) {
         // Might use a resource here that returns a JSON array
         //LocalStorage.clear();
         var reminders = [];
@@ -21,11 +21,40 @@ angular.module('starter.services', [])
             remove: function (reminder) {
                 reminders.splice(reminders.indexOf(reminder), 1);
                 LocalStorage.set('xreminders', JSON.stringify(reminders));
+                Notifications.delete(reminder);
             },
-            update: function (reminder) {
+            save: function(reminder) {
+                reminders[reminder.id] = reminder;
+                LocalStorage.set('xreminders', JSON.stringify(reminders));
+            },
+            update: function (reminder, oldReminder) {
+                console.log("getting to the update function in services");
+                //if nothing changed, don't do an update
+                if(JSON.stringify(reminder) === JSON.stringify(oldReminder) ) {
+                    console.log("old reminder is equal to new reminder");
+                    return;
+                }
                 console.log(JSON.stringify(reminders[reminder.id]) + "   " + JSON.stringify(reminder));
                 reminders[reminder.id] = reminder;
                 LocalStorage.set('xreminders', JSON.stringify(reminders));
+
+                if(reminder.active && !oldReminder.active) {
+                    console.log("reschedule reminders " + reminder.active + " " + oldReminder.active);
+                    Notifications.schedule(reminder);
+                }
+
+                if(!reminder.active && oldReminder.active) {
+                    console.log("delete reminders " + reminder.active + " " + oldReminder.active);
+                    Notifications.delete(reminder);
+                }
+
+                if(oldReminder.active && reminder.active) {
+                    if(reminder.frequency !== oldReminder.frequency || reminder.interval !== oldReminder.interval) {
+                        console.log("delete and reschedule reminders " + reminder.active + " " + oldReminder.active);
+                        Notifications.delete(reminder);
+                        Notifications.schedule(reminder);
+                    }
+                }
             },
             get: function (reminderId) {
                 for (var i = 0; i < reminders.length; i++) {
@@ -82,13 +111,14 @@ angular.module('starter.services', [])
         } else {
             console.log("no nid exists");
             LocalStorage.set('nid', 0);
-            notificationId = LocalStorage.get('nid');
         }
 
-        var startDate = $moment("20111031", "YYYYMMDD").fromNow();
-        console.log(startDate + "   " + $moment().startOf('day').format('MMMM Do YYYY, h:mm:ss a'));
         return {
-
+            saveReminder: function(reminder) {
+                var reminders = LocalStorage.get("xreminders");
+                reminders[reminder.id] = reminder;
+                LocalStorage.set('xreminders', JSON.stringify(reminders));
+            },
             randomDate: function (start, interval) {
                 console.log(start + " interval   " + interval );
                 //start = new Date(start);
@@ -131,8 +161,6 @@ angular.module('starter.services', [])
 
                 console.log("new date " + new Date(randDate) + " " + randDate);
                 return $moment(randDate).format();
-
-
             },
             generateRandomNumber: function(start, end) {
                 return start + (Math.random() * (end - start));
@@ -148,10 +176,9 @@ angular.module('starter.services', [])
                 var hour = sHour + Math.random() * (endHour - sHour) | 0;
                 date.setHours(hour);
                 date.setMinutes(new Date(start).getMinutes() + date.getMinutes());
-                console.log("new date is " + date);
+                console.log("new random date is " + date);
                 return date;
             },
-
             schedule: function (reminder) {
 
                 var moment = $moment().format();
@@ -159,10 +186,11 @@ angular.module('starter.services', [])
                 var frequency = parseInt(reminder.frequency);
                 console.log("REMINDER FREQUENCY IS " + reminder.frequency);
                 console.log("Random date is " + new Date(this.randomDate(moment, reminder.interval)));
+                var nMin = parseInt(this.getId()) + 1;
                 var notifications = [];
                 for (i = 0; i < frequency; i++) {
                     notifications.push({
-                        id: this.getId() + i + 1,
+                        id: parseInt(this.getId()) + i + 1,
                         every: reminder.interval,
                         message: reminder.note,
                         title: reminder.title,
@@ -173,12 +201,31 @@ angular.module('starter.services', [])
                 console.dir("notifications are    " + JSON.stringify(notifications));
                 $cordovaLocalNotification.schedule(notifications).then(function(){
                     console.log("Notifications scheduled");
-                    notificationId = notificationId + frequency;
-                    this.setId(notificationId);
+
+                });
+                notificationId = parseInt(notificationId) + parseInt(frequency);
+                console.log("after frequency add, nid is " + notificationId);
+                this.setId(notificationId);
+                reminder.nIdMin = Number(nMin);
+                reminder.nIdMax = Number(notificationId);
+                this.saveReminder(reminder);
+            },
+            delete: function(reminder) {
+                var notificationsArray = this.generateNotificationArray(Number(reminder.nIdMin), Number(reminder.nIdMax));
+                $cordovaLocalNotification.cancel(notificationsArray, function(){
+                    console.log("Notifications cancelled");
                 });
             },
+            generateNotificationArray: function(min, max) {
+                var arrayOfNotifications = Array.apply(null, {length: max + 1 - min}).map(function(_, idx) {
+                    return idx + min;
+                });
+                console.log("Array of notifications is " + arrayOfNotifications);
+                return arrayOfNotifications;
+            },
             getId: function() {
-                return parseInt(notificationId);
+                console.log("notification id is " + notificationId);
+                return Number(notificationId);
             },
             setId: function(nid) {
                 LocalStorage.set('nid', nid);
@@ -203,13 +250,13 @@ angular.module('starter.services', [])
             settings = LocalStorage.getObject('xsettings');
         }
         console.log("setting start time " + new Date(settings.startTime));
-        var shours = new Date(settings.startTime).getHours();
-        var sminutes = new Date(settings.startTime).getMinutes();
-        var sseconds = new Date(settings.startTime).getSeconds();
+        var shours = $moment(settings.startTime).hours();
+        var sminutes = $moment(settings.startTime).minutes();
+        var sseconds = $moment(settings.startTime).seconds();
 
-        var ehours = new Date(settings.endTime).getHours();
-        var eminutes = new Date(settings.endTime).getMinutes();
-        var eseconds = new Date(settings.endTime).getSeconds();
+        var ehours = $moment(settings.endTime).hours();
+        var eminutes = $moment(settings.endTime).minutes();
+        var eseconds = $moment(settings.endTime).seconds();
 
         return {
             get: function () {
@@ -233,71 +280,29 @@ angular.module('starter.services', [])
             },
             getStartTimeForDay: function(date) {
                // date = new Date($moment(date));
-                console.log("date    " + date);
+              //  console.log("date    " + date.toString());
                // var dateString = date.getFullYear() + "-" + (parseInt(date.getMonth()) + 1) + "-" + date.getDate();
-                var startTimeForDay = $moment(date, "YYYY-MM-DD")
+                var startTimeForDay = $moment(date.toString(), "YYYY-MM-DD")
                     .add(shours, 'hours')
                     .add(sminutes, 'minutes')
                     .add(sseconds, 'seconds');
-                console.log("startTimeForDay " + startTimeForDay);
-                return startTimeForDay;
+                //console.log("startTimeForDay " + startTimeForDay.format() + "   " + $moment(date.toString(), "YYYY-MM-DD").format());
+                return startTimeForDay.format();
             },
             getEndTimeForDay: function(date) {
                // date = $moment(date);
-                console.log("date in getend time " + date);
+              //  console.log("date in getend time " + date);
                 //var dateString = date.getFullYear() + "-" + (parseInt(date.getMonth()) + 1) + "-" + date.getDate();
                // console.log("dateString " + dateString);
-                var endTimeForDay = $moment(date, "YYYY-MM-DD")
+                var endTimeForDay = $moment(date.toString(), "YYYY-MM-DD")
                     .add(ehours, 'hours')
                     .add(eminutes, 'minutes')
                     .add(eseconds, 'seconds');
-                return endTimeForDay;
+                //console.log("end time of the day is " + endTimeForDay.format() + " " + ehours + " " + eminutes);
+                return endTimeForDay.format();
             },
             save: function (settings) {
                 LocalStorage.set('xsettings', JSON.stringify(settings));
-            }
-        };
-    }).factory('Reminders', function (LocalStorage) {
-        // Might use a resource here that returns a JSON array
-        //LocalStorage.clear();
-        var reminders = [];
-
-        if (LocalStorage.getArray('xreminders')) {
-            console.log("xreminder exists");
-            reminders = LocalStorage.getArray('xreminders');
-        } else {
-            console.log("no xreminder exists");
-            LocalStorage.setArray('xreminders', []);
-            reminders = LocalStorage.getArray('xreminders');
-        }
-
-        return {
-            all: function () {
-                return LocalStorage.getArray('xreminders');
-            },
-            remove: function (reminder) {
-                reminders.splice(reminders.indexOf(reminder), 1);
-                LocalStorage.set('xreminders', JSON.stringify(reminders));
-            },
-            update: function (reminder) {
-                console.log(JSON.stringify(reminders[reminder.id]) + "   " + JSON.stringify(reminder));
-                reminders[reminder.id] = reminder;
-                LocalStorage.set('xreminders', JSON.stringify(reminders));
-            },
-            get: function (reminderId) {
-                for (var i = 0; i < reminders.length; i++) {
-                    if (reminders[i].id === parseInt(reminderId)) {
-                        return reminders[i];
-                    }
-                }
-                return null;
-            },
-            add: function (reminder) {
-                reminders.push(reminder);
-                LocalStorage.set('xreminders', JSON.stringify(reminders));
-            },
-            size: function () {
-                return reminders.length;
             }
         };
     });

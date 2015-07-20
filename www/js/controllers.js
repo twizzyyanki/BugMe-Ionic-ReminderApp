@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
+angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
 
     .controller('DashCtrl', function ($scope, Reminders, filterFilter, Notifications) {
         $scope.$on('$ionicView.enter', function(e) {
@@ -16,24 +16,25 @@ angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
         // To listen for when this page is active (for example, to refresh data),
         // listen for the $ionicView.enter event:
         //
+        $scope.reminders = Reminders.all();
+
         $scope.$on('$ionicView.enter', function(e) {
             $scope.reminders = Reminders.all();
         });
 
-
-        console.log("Reminders are " + $scope.reminders);
         $scope.remove = function (reminder) {
             Reminders.remove(reminder);
             $state.go($state.current, {}, {reload: true});
         };
     })
 
-    .controller('ReminderDetailCtrl', function ($scope, $ionicPopup, Reminders, $stateParams, $state, Reminders) {
+    .controller('ReminderDetailCtrl', function ($scope, $ionicPopup, Reminders, $stateParams, $state) {
         $scope.reminder = Reminders.get($stateParams.reminderId);
+        $scope.oldReminderObject = angular.copy($scope.reminder);
 
         $scope.update = function () {
             $scope.reminder.face = ($scope.reminder.active) ? './img/active.png' : './img/inactive.png';
-            Reminders.update($scope.reminder);
+            Reminders.update($scope.reminder, $scope.oldReminderObject);
             $ionicPopup.alert({
                 title: 'Success!!!',
                 template: 'The reminder has been updated'
@@ -60,7 +61,9 @@ angular.module('starter.controllers', ['ionic', 'ngStorage', 'ngCordova'])
                 face: ($scope.reminder.active) ? './img/active.png' : './img/inactive.png',
                 active: $scope.reminder.active,
                 interval: $scope.reminder.interval,
-                frequency: $scope.reminder.frequency
+                frequency: $scope.reminder.frequency,
+                nIdMin: -2,
+                nIdMax: -1
             };
             Reminders.add(newreminder);
             if(newreminder.active) {

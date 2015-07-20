@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e94543f4-5d63-49ff-b7e8-ead7ec8991f5" name="Default" comment="" />
+    <list default="true" id="e94543f4-5d63-49ff-b7e8-ead7ec8991f5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-568h@2x~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-667h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape-736h.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Landscape~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait@2x~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default-Portrait~ipad.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default@2x~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" afterPath="$PROJECT_DIR$/resources/ios/splash/Default~iphone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-hdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-hdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-ldpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-mdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-land-xxxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-ldpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-mdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-hdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-ldpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-mdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" afterPath="$PROJECT_DIR$/resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" afterPath="$PROJECT_DIR$/resources/android/icon/drawable-xxxhdpi-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-40@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-50@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-60@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-72@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-76@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon-small@3x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" afterPath="$PROJECT_DIR$/resources/ios/icon/icon@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/splash.png" afterPath="$PROJECT_DIR$/resources/splash.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="$PROJECT_DIR$/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/reminder-detail.html" afterPath="$PROJECT_DIR$/www/templates/reminder-detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services.js" afterPath="$PROJECT_DIR$/www/js/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Reminder.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,8 +97,8 @@
       <file leaf-file-name="reminder-detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/templates/reminder-detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.166667">
-              <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+            <state vertical-scroll-proportion="-8.791667">
+              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -73,21 +124,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.923913">
-              <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platforms/ios/Bug Me/config.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/js/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.1293303">
+              <caret line="46" column="42" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -97,7 +158,7 @@
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="111" column="11" selection-start-line="111" selection-start-column="11" selection-end-line="111" selection-end-column="11" />
+              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,17 +190,18 @@
         <option value="$PROJECT_DIR$/www/templates/add-chat.html" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/templates/tab-account.html" />
-        <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/platforms/android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/platforms/android/src/de/appplant/cordova/plugin/localnotification/LocalNotification.java" />
         <option value="$PROJECT_DIR$/www/templates/tabs.html" />
         <option value="$PROJECT_DIR$/www/templates/add-reminder.html" />
         <option value="$PROJECT_DIR$/www/templates/tab-dash.html" />
-        <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/tab-reminders.html" />
-        <option value="$PROJECT_DIR$/www/templates/reminder-detail.html" />
+        <option value="$PROJECT_DIR$/platforms/ios/Bug Me/config.xml" />
+        <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
+        <option value="$PROJECT_DIR$/www/templates/reminder-detail.html" />
+        <option value="$PROJECT_DIR$/www/js/services.js" />
       </list>
     </option>
   </component>
@@ -174,9 +236,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="99" />
-    <option name="y" value="48" />
-    <option name="width" value="979" />
+    <option name="x" value="194" />
+    <option name="y" value="74" />
+    <option name="width" value="1210" />
     <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -202,8 +264,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -232,7 +293,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
+              <option name="myItemId" value="platforms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -246,11 +307,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
+              <option name="myItemId" value="platforms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="ios" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -264,17 +325,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
+              <option name="myItemId" value="platforms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="ios" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Bug Me" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -298,7 +364,7 @@
       <recent name="$PROJECT_DIR$/../" />
     </key>
   </component>
-  <component name="RunManager" selected="PhoneGap/Cordova.Android Run">
+  <component name="RunManager" selected="PhoneGap/Cordova.iOS Emulator Run">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -572,7 +638,7 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="false" name="Phonegap/Cordova run" type="PhoneGap" factoryName="PhoneGap/Cordova">
+    <configuration default="false" name="iOS Emulator Run" type="PhoneGap" factoryName="PhoneGap/Cordova">
       <option name="myExecutable" value="/usr/local/bin/ionic" />
       <option name="myWorkDir" value="$PROJECT_DIR$" />
       <option name="myCommand" value="emulate" />
@@ -606,7 +672,7 @@
       <method />
     </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="PhoneGap/Cordova.Phonegap/Cordova run" />
+      <item index="0" class="java.lang.String" itemvalue="PhoneGap/Cordova.iOS Emulator Run" />
       <item index="1" class="java.lang.String" itemvalue="PhoneGap/Cordova.Browser" />
       <item index="2" class="java.lang.String" itemvalue="PhoneGap/Cordova.Android Run" />
     </list>
@@ -630,16 +696,18 @@
       <workItem from="1436911975983" duration="529000" />
       <workItem from="1436927214108" duration="7142000" />
       <workItem from="1436946089732" duration="12365000" />
-      <workItem from="1437080634554" duration="1505000" />
+      <workItem from="1437080634554" duration="1651000" />
+      <workItem from="1437240450851" duration="1166000" />
+      <workItem from="1437361965094" duration="13198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102957000" />
+    <option name="totallyTimeSpent" value="117467000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="99" y="48" width="979" height="784" extended-state="0" />
-    <editor active="true" />
+    <frame x="194" y="74" width="1210" height="784" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -657,8 +725,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3258427" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31748253" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26363635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31748253" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -688,14 +756,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="100" selection-start-line="34" selection-start-column="100" selection-end-line="34" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1022,22 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="11" selection-start-line="111" selection-start-column="11" selection-end-line="111" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/tab-dash.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1062,18 +1106,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/ios/Bug Me/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/templates/reminder-detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.166667">
-          <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+        <state vertical-scroll-proportion="-8.791667">
+          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.923913">
-          <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1293303">
+          <caret line="46" column="42" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="42" />
           <folding />
         </state>
       </provider>
