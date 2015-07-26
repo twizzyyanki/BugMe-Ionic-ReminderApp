@@ -11,9 +11,10 @@
             </label>
         </div>
         <ion-list>
-            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="reminder in reminders | orderBy:'title' | filter:searchText track by $index "
+            <ion-item class="item-remove-animate item-avatar item-icon-right"
+                      ng-repeat="reminder in reminders | orderBy:'title' | filter:searchText track by $index "
                       type="item-text-wrap" href="#/tab/reminders/{{reminder.id}}">
-                <img ng-src="{{reminder.face}}">
+                <img ng-src="{{reminder.face}}"/>
 
                 <h2>{{reminder.title}}</h2>
 
@@ -24,7 +25,8 @@
                     Delete
                 </ion-option-button>
             </ion-item>
-            <h6 class="padding text-center dark" ng-hide="reminders.length">You have no reminders! <br />Click the compose button on the top right to add reminders</h6>
+            <h6 class="padding text-center dark" ng-hide="reminders.length">You have no reminders! <br/>Click the
+                compose button on the top right to add reminders</h6>
         </ion-list>
     </ion-content>
 </ion-view>

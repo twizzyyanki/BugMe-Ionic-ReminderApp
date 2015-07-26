@@ -3515,7 +3515,7 @@ ion-infinite-scroll:not(.active) .spinner, ion-infinite-scroll:not(.active) .ico
 
 /* If you change these, change platform.scss as well */
 .has-header {
-    top: 44px;
+    top: 20px;
 }
 
 .no-header {

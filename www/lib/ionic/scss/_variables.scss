@@ -20,9 +20,9 @@ $font-family-serif: serif !default;
 $font-family-monospace: monospace !default;
 
 $font-family-base: $font-family-sans-serif !default;
-$font-size-base: 14px !default;
-$font-size-large: 18px !default;
-$font-size-small: 11px !default;
+$font-size-base: 12px !default;
+$font-size-large: 16px !default;
+$font-size-small: 9px !default;
 
 $line-height-base: 1.428571429 !default;
 // 20/14
@@ -153,8 +153,8 @@ $button-default-active-border: $button-stable-active-border !default;
 // Bars
 // -------------------------------
 
-$bar-height: 44px !default;
-$bar-title-font-size: 17px !default;
+$bar-height: 20px !default;
+$bar-title-font-size: 15px !default;
 $bar-padding-portrait: 5px !default;
 $bar-padding-landscape: 5px !default;
 $bar-transparency: 1 !default;
@@ -227,11 +227,11 @@ $bar-default-active-border: $bar-light-active-border !default;
 // -------------------------------
 
 $tabs-height: 49px !default;
-$tabs-text-font-size: 14px !default;
-$tabs-text-font-size-side-icon: 10px !default;
+$tabs-text-font-size: 12px !default;
+$tabs-text-font-size-side-icon: 8px !default;
 $tabs-icon-size: 32px !default;
 $tabs-badge-padding: 1px 6px !default;
-$tabs-badge-font-size: 12px !default;
+$tabs-badge-font-size: 10px !default;
 
 $tabs-light-bg: $button-light-bg !default;
 $tabs-light-border: $button-light-border !default;
@@ -283,17 +283,17 @@ $tabs-striped-border-width: 2px !default;
 // Items
 // -------------------------------
 
-$item-font-size: 16px !default;
+$item-font-size: 14px !default;
 $item-border-width: 1px !default;
 $item-padding: 16px !default;
 
-$item-button-font-size: 18px !default;
+$item-button-font-size: 16px !default;
 $item-button-line-height: 32px !default;
-$item-icon-font-size: 32px !default;
-$item-icon-fill-font-size: 28px !default;
+$item-icon-font-size: 30px !default;
+$item-icon-fill-font-size: 26px !default;
 
 $item-icon-accessory-color: #ccc !default;
-$item-icon-accessory-font-size: 16px !default;
+$item-icon-accessory-font-size: 14px !default;
 
 $item-avatar-width: 40px !default;
 $item-avatar-height: 40px !default;
@@ -620,7 +620,7 @@ $loading-text-color: #fff !default;
 $loading-bg-color: rgba(0, 0, 0, 0.7) !default;
 $loading-padding: 20px !default;
 $loading-border-radius: 5px !default;
-$loading-font-size: 15px !default;
+$loading-font-size: 13px !default;
 
 $loading-backdrop-fadein-duration: 0.1s !default;
 $loading-backdrop-bg-color: rgba(0, 0, 0, 0.4) !default;
@@ -628,7 +628,7 @@ $loading-backdrop-bg-color: rgba(0, 0, 0, 0.4) !default;
 // Badges
 // -------------------------------
 
-$badge-font-size: 14px !default;
+$badge-font-size: 12px !default;
 $badge-line-height: 16px !default;
 $badge-font-weight: bold !default;
 $badge-border-radius: 10px !default;
