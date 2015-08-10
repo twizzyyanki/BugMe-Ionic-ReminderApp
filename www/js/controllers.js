@@ -28,6 +28,13 @@ angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
         $scope.oldReminderObject = angular.copy($scope.reminder);
 
         $scope.update = function () {
+            if(!$scope.reminder.title) {
+                $ionicPopup.alert({
+                    title: 'Error!!!',
+                    template: "<div class='center'>Title cannot be empty</div>"
+                });
+                return;
+            }
             $scope.reminder.face = ($scope.reminder.active) ? './img/active.png' : './img/inactive.png';
             Reminders.update($scope.reminder, $scope.oldReminderObject);
             $ionicPopup.alert({
@@ -47,6 +54,14 @@ angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
         $scope.reminder = {interval: Settings.get().interval, frequency: Settings.get().frequency};
 
         $scope.save = function () {
+
+            if(!$scope.reminder.title) {
+                $ionicPopup.alert({
+                    title: 'Error!!!',
+                    template: "<div class='center'>Title cannot be empty</div>"
+                });
+                return;
+            }
 
             var newreminder = {
                 id: Reminders.size(),
@@ -74,10 +89,10 @@ angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
         $scope.settings.endTime = new Date($scope.settings.endTime);
 
         $scope.save = function () {
-            if ($moment($scope.settings.endTime).diff($moment($scope.settings.startTime), "minutes") < 1) {
+            if ($moment($scope.settings.endTime).diff($moment($scope.settings.startTime), "hours") < 1) {
                 $ionicPopup.alert({
                     title: 'Error!!!',
-                    template: "<div class='center'>End time has to be after start time by at least 1 minute</div>"
+                    template: "<div class='center'>End time has to be after start time by at least 1 hour</div>"
                 });
                 return;
             }

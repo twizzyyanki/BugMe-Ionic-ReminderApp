@@ -5,10 +5,12 @@
     <description>
         This app reminds you of events at random times.
         You could set an hourly, daily, weekly, monthly or yearly reminder.
-        Regular reminders remind you of things are fixed times. Sometimes one can fall into a routine
+        Regular reminders remind you of things are fixed times. Sometimes one can fall into a routine since one knows
+        when the reminder will go off.
+        BugMe always keeps you alert by reminding you at random (unpredictable) times.
     </description>
     <author email="agu_ifeanyi@yahoo.com" href="http://t.co/PRrYSWmbAC">
-        Code For Fun
+        Written by Ifeanyi Agu (aka Yanki Twizzy)
     </author>
     <content src="index.html"/>
     <access origin="*"/>
@@ -69,6 +71,7 @@
         <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
         <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
     </platform>
+    <!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.1" />-->
     <gap:plugin name="de.appplant.cordova.plugin.local-notification"/>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>

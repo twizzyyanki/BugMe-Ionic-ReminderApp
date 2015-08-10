@@ -2,11 +2,11 @@
     <ion-nav-buttons side="right">
         <button class="button" ng-click="save()">Add</button>
     </ion-nav-buttons>
-    <form ng-submit="save()">
+    <form ng-submit="save()" novalidate>
         <ion-content>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Title</span>
-                <input ng-model="reminder.title" name="title" type="text">
+                <input ng-model="reminder.title" name="title" type="text" ng-required>
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Note</span>

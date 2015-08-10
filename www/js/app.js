@@ -22,6 +22,7 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
 
             .state('tab.reminders', {
                 url: '/reminders',
+                cache: false,
                 views: {
                     'tab-reminders': {
                         templateUrl: 'templates/tab-reminders.html',
@@ -32,6 +33,7 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
 
             .state('tab.reminder-detail', {
                 url: '/reminders/:reminderId',
+                cache: false,
                 views: {
                     'tab-reminders': {
                         templateUrl: 'templates/reminder-detail.html',
@@ -42,16 +44,18 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
 
             .state('tab.add-reminder', {
                 url: '/addreminder',
+                cache: false,
                 views: {
                     'tab-reminders': {
                         templateUrl: 'templates/add-reminder.html',
-                        controller: 'AddReminderCtrl'
+                        controller: 'AddReminderCtrl',
                     }
                 }
             })
 
             .state('tab.account', {
                 url: '/account',
+                cache: false,
                 views: {
                     'tab-account': {
                         templateUrl: 'templates/tab-account.html',
@@ -67,7 +71,7 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
             .scriptUrl('../lib/momemt/moment.js');
 
     })
-    .run(function ($ionicPlatform, $cordovaLocalNotification, $rootScope, Notifications, $moment) {
+    .run(function ($ionicPlatform, $cordovaLocalNotification, $rootScope, Notifications, $moment, TimeManipulation) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -84,24 +88,35 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
             $rootScope.$on('$cordovaLocalNotification:click',
                 function (event, notification, state) {
                     //console.log("Notification was clicked " + notification.data);
+                    console.log("All ids are " + JSON.stringify($cordovaLocalNotification.getAllIds()));
                     location.href = "#/tab/reminders/" + JSON.parse(notification.data).id;
                 });
 
             $rootScope.$on('$cordovaLocalNotification:trigger',
                 function (event, notification, state) {
                     //console.log(notification + "   " + $moment(notification.at, "X").format() + " was triggered");
-                    var now = $moment(notification.at, "X").add(5, "minutes").format();
-                    var newDate = Notifications.randomDate(now, notification.every);
-                    //console.log("Notification before update! New date is now " + newDate + " old date is " + now);
-                    $cordovaLocalNotification.update({
+                    var now = JSON.parse(notification.data).at;
+                    var reminder = Notifications.getReminder(JSON.parse(notification.data).id);
+                    console.log("This notification belongs to this reminder " + JSON.parse(notification.data).at + "  " + reminder.interval);
+                    var newDate = TimeManipulation.getNext(JSON.parse(notification.data).at, reminder.interval);
+                    console.log("Notification before update! New date is now " + newDate + " old date is " + now);
+                    //var id = Number(7000000 + Math.random() * (8000000 - 7000000));
+                    var newNotification = {
                         id: notification.id,
-                        at: newDate,
-                        every: notification.every,
+                        firstAt: new Date(newDate),
+                        //every: "0",
                         message: notification.message,
+                        badge: notification.badge + 1,
                         title: notification.title,
                         data: notification.data
-                    });
-                    //console.log("Notification updated! New date is now " + newDate + " old date is " + now);
+                    };
+                   $cordovaLocalNotification.schedule(newNotification, {
+                       id: 900000,
+                       message: "every minutes",
+                       every: "minute",
+                       title: "notify me every minute"
+                   });
+                    console.log("Notification rescheduled! New notification added " + JSON.stringify(newNotification));
                 });
         });
     });
