@@ -3,11 +3,11 @@
         <a class="button button-icon icon ion-compose"
            ng-href="#/tab/addreminder"></a>
     </ion-nav-buttons>
-    <ion-content>
-        <div class="list list-inset">
+    <ion-content start-y="85">
+        <div class="list list-inset" ng-show="reminders.length">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search" ng-model="searchText">
+                <input type="text" placeholder="Search" ng-model="searchText" >
             </label>
         </div>
         <ion-list>

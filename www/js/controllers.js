@@ -12,6 +12,7 @@ angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
     .controller('RemindersCtrl', function ($scope, Reminders, $state) {
 
         $scope.reminders = Reminders.all();
+        //$scope.showSearch = false;
 
         $scope.$on('$ionicView.enter', function(e) {
             $scope.reminders = Reminders.all();
