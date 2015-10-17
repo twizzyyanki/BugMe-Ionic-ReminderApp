@@ -71,7 +71,7 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
             .scriptUrl('../lib/momemt/moment.js');
 
     })
-    .run(function ($ionicPlatform, $cordovaLocalNotification, $rootScope, Notifications, $moment, TimeManipulation) {
+    .run(function ($ionicPlatform, $rootScope, Notifications, $moment, TimeManipulation) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -90,33 +90,30 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
                     //console.log("Notification was clicked " + notification.data);
                     console.log("All ids are " + JSON.stringify($cordovaLocalNotification.getAllIds()));
                     location.href = "#/tab/reminders/" + JSON.parse(notification.data).id;
-                });
+                }, this);
 
             $rootScope.$on('$cordovaLocalNotification:trigger',
                 function (event, notification, state) {
-                    //console.log(notification + "   " + $moment(notification.at, "X").format() + " was triggered");
+                   //console.log(notification + "   " + $moment(notification.at, "X").format() + " was triggered");
                     var now = JSON.parse(notification.data).at;
                     var reminder = Notifications.getReminder(JSON.parse(notification.data).id);
                     console.log("This notification belongs to this reminder " + JSON.parse(notification.data).at + "  " + reminder.interval);
                     var newDate = TimeManipulation.getNext(JSON.parse(notification.data).at, reminder.interval);
                     console.log("Notification before update! New date is now " + newDate + " old date is " + now);
                     //var id = Number(7000000 + Math.random() * (8000000 - 7000000));
-                    var newNotification = {
+                    console.log("the id to be used " + (notification.id*100000) + 1 + " and firstAt " + new Date(newDate));
+                    Notifications.update(notification, newDate);
+
+                    /*var newNotification = {
                         id: notification.id,
-                        firstAt: new Date(newDate),
+                        at: new Date(newDate),
                         //every: "0",
                         message: notification.message,
-                        badge: notification.badge + 1,
                         title: notification.title,
                         data: notification.data
                     };
-                   $cordovaLocalNotification.schedule(newNotification, {
-                       id: 900000,
-                       message: "every minutes",
-                       every: "minute",
-                       title: "notify me every minute"
-                   });
+                    Notifications.scheduleNotification(newNotification);*/
                     console.log("Notification rescheduled! New notification added " + JSON.stringify(newNotification));
-                });
+                }, this);
         });
     });

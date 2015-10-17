@@ -188,7 +188,13 @@ angular.module('bugme.services', [])
                 //console.log("new random date is " + date);
                 return date;
             },
+            scheduleNotification: function(notification) {
+                $cordovaLocalNotification.schedule(notification, function(result){
+                    console.log("Notification scheduled then " + results);
+                });
+            },
             schedule: function (reminder) {
+                console.log("About to schedule reminder " + JSON.stringify(reminder));
                 var moment = $moment().format();
                 var frequency = parseInt(reminder.frequency);
                 var nMin = parseInt(this.getId());
@@ -198,17 +204,16 @@ angular.module('bugme.services', [])
                     var at = new Date(this.randomDate(moment, reminder.interval));
                     notifications.push({
                         id: parseInt(Number(notificationId) + Number(i)),
-                       // every: "0",
+                        every: reminder.every,
                         message: reminder.note,
                         title: reminder.title,
                         at: at,
                         data: {id: reminder.id, frequency: reminder.frequency, at: at}
                     });
                 }
-                console.dir("notifications are    " + JSON.stringify(notifications));
-                $cordovaLocalNotification.schedule(notifications).then(function (result) {
-                    console.log("Notifications scheduled " + result);
-
+                console.log("notifications are    " + JSON.stringify(notifications));
+                $cordovaLocalNotification.schedule(notifications, function(result){
+                    console.log("Notification scheduled then " + results);
                 });
                 notificationId = parseInt(notificationId) + parseInt(frequency);
                 //console.log("after frequency add, nid is " + notificationId);
@@ -220,13 +225,15 @@ angular.module('bugme.services', [])
             delete: function (reminder) {
                 var notificationsArray = this.generateNotificationArray(Number(reminder.nIdMin), Number(reminder.nIdMax));
                 console.log("Notifications array is " + notificationsArray);
-                $cordovaLocalNotification.clear(notificationsArray, function () {
-                    //console.log("Notifications cleared");
-                });
                 $cordovaLocalNotification.cancel(notificationsArray, function () {
                     //console.log("Notifications cancelled");
                 });
-
+            },
+            update: function(notification, newDate) {
+                console.log("NEW DATE IS " + new Date(newDate));
+                newDate = new Date(newDate).getTime();
+                $cordovaLocalNotification.update({id:notification.id, at: newDate, every: notification.every});
+                console.log("All notifications" + JSON.stringify($cordovaLocalNotification.getAll()));
             },
             generateNotificationArray: function (min, max) {
                 var arrayOfNotifications = Array.apply(null, {length: max + 1 - min}).map(function (_, idx) {
@@ -263,17 +270,10 @@ angular.module('bugme.services', [])
             settings = LocalStorage.getObject('xsettings');
         }
         console.log("setting start time " + new Date(settings.startTime));
-        var shours = $moment(settings.startTime).hours();
-        var sminutes = $moment(settings.startTime).minutes();
-        var sseconds = $moment(settings.startTime).seconds();
-
-        var ehours = $moment(settings.endTime).hours();
-        var eminutes = $moment(settings.endTime).minutes();
-        var eseconds = $moment(settings.endTime).seconds();
 
         return {
             get: function () {
-                return settings;
+                return LocalStorage.getObject('xsettings');
             },
             getStartOfDay: function () {
                 var date = $moment()
@@ -288,6 +288,11 @@ angular.module('bugme.services', [])
                 return date;
             },
             getStartTimeForDay: function (date) {
+                settings = LocalStorage.getObject('xsettings');
+                var shours = $moment(settings.startTime).hours();
+                var sminutes = $moment(settings.startTime).minutes();
+                var sseconds = $moment(settings.startTime).seconds();
+
                 var startTimeForDay = $moment(date)
                     .startOf("day")
                     .add(shours, 'hours')
@@ -296,6 +301,11 @@ angular.module('bugme.services', [])
                 return startTimeForDay.format();
             },
             getEndTimeForDay: function (date) {
+                settings = LocalStorage.getObject('xsettings');
+                var ehours = $moment(settings.endTime).hours();
+                var eminutes = $moment(settings.endTime).minutes();
+                var eseconds = $moment(settings.endTime).seconds();
+
                 console.log("date coming in is " + date + " " + ehours + "  " + eminutes + "   " + eseconds);
                 var endTimeForDay = $moment(date)
                     .startOf("day")

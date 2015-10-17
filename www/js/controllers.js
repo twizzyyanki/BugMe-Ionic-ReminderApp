@@ -50,7 +50,7 @@ angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
         };
     })
 
-    .controller('AddReminderCtrl', function ($scope, $ionicPopup, $rootScope, $state, $ionicPlatform, Reminders, Notifications, Settings) {
+    .controller('AddReminderCtrl', function ($scope, $state, $ionicPopup, Reminders, Notifications, Settings) {
 
         $scope.reminder = {interval: Settings.get().interval, frequency: Settings.get().frequency};
 
@@ -75,8 +75,10 @@ angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
                 nIdMin: -2,
                 nIdMax: -1
             };
+
             Reminders.add(newreminder);
             if(newreminder.active) {
+                console.log("About to schedule reminder " + newreminder);
                 Notifications.schedule(newreminder);
             }
             $scope.reminder = {interval: Settings.get().interval, frequency: Settings.get().frequency};
