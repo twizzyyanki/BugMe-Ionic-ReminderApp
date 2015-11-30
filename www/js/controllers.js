@@ -26,7 +26,10 @@ angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
 
     .controller('ReminderDetailCtrl', function ($scope, $ionicPopup, Reminders, $stateParams, $state) {
         $scope.reminder = Reminders.get($stateParams.reminderId);
-        $scope.oldReminderObject = angular.copy($scope.reminder);
+
+        $scope.$on('$ionicView.enter', function(e) {
+            $scope.oldReminderObject = angular.copy($scope.reminder);
+        });
 
         $scope.update = function () {
             if(!$scope.reminder.title) {

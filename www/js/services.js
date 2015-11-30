@@ -46,14 +46,13 @@ angular.module('bugme.services', [])
                     //console.log("delete reminders " + reminder.active + " " + oldReminder.active);
                     Notifications.delete(reminder);
                 }
+                
+                if ((reminder.frequency !== oldReminder.frequency || reminder.interval !== oldReminder.interval) && reminder.active) {
+                    //console.log("delete and reschedule reminders " + reminder.active + " " + oldReminder.active);
+                    Notifications.delete(reminder);
+                    Notifications.schedule(reminder);
+                }
 
-              //  if (oldReminder.active && reminder.active) {
-                    if (reminder.frequency !== oldReminder.frequency || reminder.interval !== oldReminder.interval) {
-                        //console.log("delete and reschedule reminders " + reminder.active + " " + oldReminder.active);
-                        Notifications.delete(reminder);
-                        Notifications.schedule(reminder);
-                    }
-               // }
             },
             get: function (reminderId) {
                 for (var i = 0; i < reminders.length; i++) {
@@ -116,7 +115,7 @@ angular.module('bugme.services', [])
                 reminders[parseInt(reminder.id)] = reminder;
                 LocalStorage.setArray('xreminders', reminders);
             },
-            getReminder: function(reminderId) {
+            getReminder: function (reminderId) {
                 var reminders = LocalStorage.getArray("xreminders");
                 return reminders[parseInt(reminderId)];
             },
@@ -188,8 +187,8 @@ angular.module('bugme.services', [])
                 //console.log("new random date is " + date);
                 return date;
             },
-            scheduleNotification: function(notification) {
-                $cordovaLocalNotification.schedule(notification, function(result){
+            scheduleNotification: function (notification) {
+                $cordovaLocalNotification.schedule(notification, function (result) {
                     console.log("Notification scheduled then " + results);
                 });
             },
@@ -212,7 +211,7 @@ angular.module('bugme.services', [])
                     });
                 }
                 console.log("notifications are    " + JSON.stringify(notifications));
-                $cordovaLocalNotification.schedule(notifications, function(result){
+                $cordovaLocalNotification.schedule(notifications, function (result) {
                     console.log("Notification scheduled then " + results);
                 });
                 notificationId = parseInt(notificationId) + parseInt(frequency);
@@ -229,10 +228,10 @@ angular.module('bugme.services', [])
                     //console.log("Notifications cancelled");
                 });
             },
-            update: function(notification, newDate) {
+            update: function (notification, newDate) {
                 console.log("NEW DATE IS " + new Date(newDate));
                 newDate = new Date(newDate).getTime();
-                $cordovaLocalNotification.update({id:notification.id, at: newDate, every: notification.every});
+                $cordovaLocalNotification.update({id: notification.id, at: newDate, every: notification.every});
                 console.log("All notifications" + JSON.stringify($cordovaLocalNotification.getAll()));
             },
             generateNotificationArray: function (min, max) {
@@ -320,10 +319,10 @@ angular.module('bugme.services', [])
             }
         };
     })
-    .factory('TimeManipulation', function($moment, Settings){
+    .factory('TimeManipulation', function ($moment, Settings) {
         var interval = "";
         return {
-            getNext: function(date, int) {
+            getNext: function (date, int) {
                 interval = int;
                 var nextNotificationDate = this.getNextDate(date, interval);
                 return nextNotificationDate;

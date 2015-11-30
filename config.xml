@@ -71,7 +71,7 @@
         <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
         <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
     </platform>
-    <!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.1" />-->
+    <!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.2" />-->
     <gap:plugin name="de.appplant.cordova.plugin.local-notification"/>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>

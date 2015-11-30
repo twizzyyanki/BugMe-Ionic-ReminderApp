@@ -1,6 +1,6 @@
-angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCordova', 'angular-momentjs'])
+angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCordova', 'angular-momentjs', 'ngIOS9UIWebViewPatch'])
 
-    .config(function ($stateProvider, $urlRouterProvider, $momentProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $momentProvider, $ionicConfigProvider) {
 
         $stateProvider
 
@@ -70,8 +70,10 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
             .asyncLoading(false)
             .scriptUrl('../lib/momemt/moment.js');
 
+        $ionicConfigProvider.tabs.position('bottom');
+
     })
-    .run(function ($ionicPlatform, $rootScope, Notifications, $moment, TimeManipulation) {
+    .run(function ($ionicPlatform, $rootScope, $cordovaLocalNotification, Notifications, $moment, TimeManipulation) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -87,13 +89,15 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
 
             $rootScope.$on('$cordovaLocalNotification:click',
                 function (event, notification, state) {
-                    //console.log("Notification was clicked " + notification.data);
+                    console.log("Notification was clicked " + notification.data);
                     console.log("All ids are " + JSON.stringify($cordovaLocalNotification.getAllIds()));
                     location.href = "#/tab/reminders/" + JSON.parse(notification.data).id;
+                    console.log("The notification clicked is " + JSON.parse(notification.data).id);
                 }, this);
 
             $rootScope.$on('$cordovaLocalNotification:trigger',
                 function (event, notification, state) {
+
                    //console.log(notification + "   " + $moment(notification.at, "X").format() + " was triggered");
                     var now = JSON.parse(notification.data).at;
                     var reminder = Notifications.getReminder(JSON.parse(notification.data).id);
@@ -104,7 +108,7 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
                     console.log("the id to be used " + (notification.id*100000) + 1 + " and firstAt " + new Date(newDate));
                     Notifications.update(notification, newDate);
 
-                    /*var newNotification = {
+                    var newNotification = {
                         id: notification.id,
                         at: new Date(newDate),
                         //every: "0",
@@ -112,8 +116,8 @@ angular.module('starter', ['ionic', 'bugme.controllers', 'bugme.services', 'ngCo
                         title: notification.title,
                         data: notification.data
                     };
-                    Notifications.scheduleNotification(newNotification);*/
-                    console.log("Notification rescheduled! New notification added " + JSON.stringify(newNotification));
+                    Notifications.scheduleNotification(newNotification);
+                 /*   console.log("Notification rescheduled! New notification added " + JSON.stringify(newNotification)); */
                 }, this);
         });
     });
