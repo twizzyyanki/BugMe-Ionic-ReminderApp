@@ -41,6 +41,7 @@ angular.module('bugme.controllers', ['ionic', 'ngStorage', 'ngCordova'])
             }
             $scope.reminder.face = ($scope.reminder.active) ? './img/active.png' : './img/inactive.png';
             Reminders.update($scope.reminder, $scope.oldReminderObject);
+            $scope.oldReminderObject = angular.copy($scope.reminder);
             $ionicPopup.alert({
                 title: 'Success!!!',
                 template: "<div class='center'>The reminder has been updated</div>"

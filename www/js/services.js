@@ -46,7 +46,7 @@ angular.module('bugme.services', [])
                     //console.log("delete reminders " + reminder.active + " " + oldReminder.active);
                     Notifications.delete(reminder);
                 }
-                
+
                 if ((reminder.frequency !== oldReminder.frequency || reminder.interval !== oldReminder.interval) && reminder.active) {
                     //console.log("delete and reschedule reminders " + reminder.active + " " + oldReminder.active);
                     Notifications.delete(reminder);
